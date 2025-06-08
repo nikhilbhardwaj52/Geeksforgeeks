@@ -24,6 +24,9 @@ class Solution {
         Node* curr=head;
         Node* prev=NULL;
        int count=1;
+       
+       if(k==1)
+       return NULL;
          
          while(curr!=NULL)
          {
