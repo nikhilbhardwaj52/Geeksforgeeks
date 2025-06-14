@@ -20,22 +20,32 @@ class Solution {
     // Function to remove a loop in the linked list.
     void removeLoop(Node* head) {
         // code here
-        Node* curr=head;
-        Node* prev=NULL;
-        unordered_map<Node*, bool> visited;
-        while(curr!=NULL)
-        {
-            if(visited[curr]==1)
-            {
-                prev->next=NULL;
-                return ;
-                
-            }
-          visited[curr]=1;
-          prev=curr;
-          curr=curr->next;
-          
-        }
+      Node* slow=head;
+        Node* fast=head;
         
+        while(fast!=NULL&&fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(fast==slow)
+            {
+                break;
+            }
+        }
+        if(fast==NULL||fast->next==NULL)
+        return;
+        
+     slow=head;
+     while(slow!=fast)
+     {
+         slow=slow->next;
+         fast=fast->next;
+     }
+     while(slow->next!=fast)
+     {
+         slow=slow->next;
+     }
+     slow->next=NULL;
     }
 };
