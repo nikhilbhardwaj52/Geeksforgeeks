@@ -36,8 +36,9 @@ class Solution {
         {
             count++;
             slow=slow->next;
-            
         }
+        
+     
         
     return count;
     }
