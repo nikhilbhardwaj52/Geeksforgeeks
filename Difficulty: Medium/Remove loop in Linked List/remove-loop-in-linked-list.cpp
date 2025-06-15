@@ -36,12 +36,13 @@ class Solution {
         if(fast==NULL||fast->next==NULL)
         return;
         
-     slow=head;
-     while(slow!=fast)
-     {
-         slow=slow->next;
-         fast=fast->next;
-     }
+        
+        slow=head;
+        while(slow!=fast)
+        {
+            slow=slow->next;
+            fast=fast->next;
+        }
      while(slow->next!=fast)
      {
          slow=slow->next;
