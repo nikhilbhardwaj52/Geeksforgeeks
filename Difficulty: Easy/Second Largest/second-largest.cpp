@@ -3,18 +3,25 @@ class Solution {
     int getSecondLargest(vector<int> &arr) {
         // code here
         int n=arr.size();
-        int first=arr[0];
+        int lar=arr[0];
+        
+        for(int i=1;i<n;i++)
+        {
+            if(arr[i]>lar)
+            {
+                lar=arr[i];
+            }
+        }
+        
         int sec=-1;
         
         for(int i=0;i<n;i++)
         {
-            if(arr[i]>first)
+            if(arr[i]==lar)
             {
-                sec=first;
-                first=arr[i];
-                
+                continue;
             }
-            else if(arr[i]<first&&arr[i]>sec)
+            else if(arr[i]>sec)
             {
                 sec=arr[i];
             }
